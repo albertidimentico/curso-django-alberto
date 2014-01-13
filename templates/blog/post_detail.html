@@ -1,0 +1,26 @@
+{% extends "blog/index.html" %}
+   {% block content %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.intro }}</p>
+        <p>{{ post.mas }}</p>
+{% endblock %}
+
+{% block  comentarios %}
+{% load comments %}
+
+{% if post  %}
+    <h3>Comentarios:</h3>
+
+    <p>{% render_comment_list for post %}</p>
+
+    </ul>
+{% else %}
+
+    <p>Se el primero en dejar tu comentario.</p>
+
+   {% endif %}
+
+   <h4>Deja un comentario</h4>
+{% render_comment_form for post %}
+
+{%endblock%}
